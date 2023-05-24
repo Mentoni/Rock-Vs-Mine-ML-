@@ -1,0 +1,23 @@
+import warnings
+warnings.filterwarnings('ignore')
+#Working on sonar dataset from kaggle
+#Importing all needed libraries
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import sklearn
+from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis

@@ -1,0 +1,18 @@
+
+#Finalizing the model: Using SVC because it performed better than KNN
+scaler = StandardScaler().fit(X_train)
+X_train = scaler.transform(X_train)
+model = SVC(C = 0.9)
+model.fit(X_train, y_train)
+X_test = scaler.transform(X_test)
+prediction = model.predict(X_test)
+print("These are the prediction from the SVC model on the data:", "\n", prediction)
+print(accuracy_score(y_test, prediction))
+sonar_matrix = confusion_matrix(y_test, prediction)
+print(sonar_matrix)
+ax = plt.subplot()
+sns.heatmap(sonar_matrix/np.sum(sonar_matrix), annot = True, fmt = '.2%', cmap = 'Reds')
+ax.set_xlabel('Predicted lable')
+ax.set_ylabel('True labels')
+ax.set_title('Confusion Matrix')
+plt.show()

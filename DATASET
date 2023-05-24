@@ -1,0 +1,2 @@
+#Sonar dataset from kaggle
+sonar_set = pd.read_csv('/DATAM/sonar data.csv', header = None)

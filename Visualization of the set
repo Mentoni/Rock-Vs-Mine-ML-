@@ -1,0 +1,23 @@
+
+sonar_set = sonar_set.drop(['column1', 'column2','column3','column4','column5','column6','column7','column8','column9','column10','column11','column12','column13','column14', 'column15','column16','column17','column18','column19','column20','column21','column22','column23','column24','column25','column26','column27','column28', 'column29','column30','column31','column32','column33','column34','column35','column36'], axis = 1)
+
+pd.set_option('display.width', 3)
+print(sonar_set.describe())
+Plotting the histogram of the sonar set
+sonar_set.hist(xlabelsize = 1, ylabelsize = 1)
+sonar_set.plot(kind = 'density', subplots = True, layout = (8,8), sharex = False, legend = False, fontsize = 1)
+sonar_set['column17'].plot(kind = 'density', layout = (8,8), fontsize = 10)
+plt.show()
+#Dropping the last column because it is not numerical
+sonar_set = sonar_set.drop(['column61'], axis = 1)
+
+#Box plot for each column, to see the median, quartiles, minimum and maximum and the outliers, also the matshow for the correlation between the columns
+for column in sonar_set.columns:
+    sonar_set[column].plot(kind = 'box', layout =(8, 8), fontsize = 10)
+    plt.show()
+
+fig = plt.figure()
+ax = fig.add_subplot(222)
+cax = ax.matshow(sonar_set.corr(), vmin = -1, vmax = 1, interpolation = 'none')
+fig.colorbar(cax)
+#plt.show()
